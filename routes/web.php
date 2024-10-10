@@ -35,6 +35,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Home Page Details
 Route::get('/allproducts', [HomeController::class, 'allproducts']);
 Route::get('/product/{id}', [HomeController::class, 'productidview'])->name('product.show');
+Route::get('/banners', [HomeController::class, 'banner']);
+Route::get('/Aboutus', [HomeController::class, 'aboutus']);
+Route::get('/Contactus', [HomeController::class, 'contactus']);
+Route::post('/Feedbackform', [HomeController::class, 'feedbackform']);
+Route::get('/explorenewarrivals', [HomeController::class, 'explorenewarrivals']);
+Route::get('/productdropdown', [HomeController::class, 'productdropdown']);
 
 
 // Crat Details

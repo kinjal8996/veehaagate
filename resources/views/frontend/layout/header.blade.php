@@ -109,161 +109,37 @@
 				<ul class="nav navbar-nav">
 
 				<li><a class="m_tag active_tab" href="{{url('/')}}">Home</a></li>
-				<li class="dropdown">
-					  <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product<span class="caret"></span></a>
-					  <ul class="dropdown-menu drop_3" role="menu">
+				{{-- <li class="dropdown">
+					  <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product</a>
+                      <ul class="dropdown-menu drop_3" role="menu">
 						<li><a href="product.html">Product</a></li>
 						<li><a class="border_none" href="detail.html">Product Detail</a></li>
 					  </ul>
+                    </li> --}}
+                    @php
+                    $products = \App\Models\Product::all();
+                  @endphp
+                    <li class="dropdown">
+                        <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+                        <ul class="dropdown-menu drop_3" role="menu">
+                            @foreach ($products as $product)
+                                <li><a href="{{ route('product.show', $product->product_id) }}">{{ $product->name }}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
-				<li class="dropdown">
+
+				{{-- <li class="dropdown">
 					  <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="caret"></span></a>
 					  <ul class="dropdown-menu drop_3" role="menu">
 						<li><a href="blog.html">Blog</a></li>
 						<li><a class="border_none" href="blog_detail.html">Blog Detail</a></li>
 					  </ul>
-                    </li>
-
-				<li><a class="m_tag" href="about.html">About Us</a></li>
-				<li><a class="m_tag" href="contact.html">Contact</a></li>
-				<li class="dropdown">
-					  <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Pages<span class="caret"></span></a>
-					  <ul class="dropdown-menu drop_3" role="menu">
-					    <li><a href="login.html">My Account</a></li>
-						<li><a href="cart.html">Shopping Cart</a></li>
-						<li><a class="border_none" href="checkout.html">Checkout</a></li>
-					  </ul>
-                    </li>
-				<li class="dropdown dropdown-large">
-				<a href="#" class="dropdown-toggle m_tag" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
-
-				<ul class="dropdown-menu dropdown-menu-large row">
-					<li class="col-sm-2">
-						<ul>
-							<li class="dropdown-header">BRACELETS</li>
-							<li><a href="#">Available</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Aligninment</a></li>
-							<li><a href="#">Headers</a></li>
-						</ul><br>
-						<ul>
-							<li class="dropdown-header">BY METAL</li>
-							<li><a href="#">Available</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-						</ul>
-					</li>
-					<li class="col-sm-2">
-						<ul>
-							<li class="dropdown-header">EARRINGS</li>
-							<li><a href="#">Available</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Aligninment</a></li>
-							<li><a href="#">Headers</a></li>
-						</ul><br>
-						<ul>
-							<li class="dropdown-header">BY METAL</li>
-							<li><a href="#"> Glyphs</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-						</ul>
-					</li>
-					<li class="col-sm-2">
-						<ul>
-							<li class="dropdown-header">PENDANTS</li>
-							<li><a href="#">Available</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Aligninment</a></li>
-							<li><a href="#">Headers</a></li>
-						</ul><br>
-						<ul>
-							<li class="dropdown-header">BY METAL</li>
-							<li><a href="#"> Glyphs</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-						</ul>
-					</li>
-					<li class="col-sm-2">
-						<ul>
-							<li class="dropdown-header">PENDANTS</li>
-							<li><a href="#">Available</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Aligninment</a></li>
-							<li><a href="#">Headers</a></li>
-						</ul><br>
-						<ul>
-							<li class="dropdown-header">BY METAL</li>
-							<li><a href="#"> Glyphs</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Jewelry</a></li>
-						</ul>
-					</li>
-					<li class="col-sm-4">
-						<ul>
-							<li><a href="#"><img src="img/1.jpg" alt="abc" class="iw"></a></li>
-						</ul><br>
-						<ul>
-							<li><a href="#"><img src="img/2.png" alt="abc" class="iw"></a></li>
-						</ul>
-					</li>
-				</ul>
-
-			</li>
-			     {{-- <li class="dropdown drop_cart">
-					  <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-shopping-cart"></i></a>
-					  <ul class="dropdown-menu drop_1" role="menu">
-						<li>
-						 <div class="drop_1i clearfix">
-						  <div class="col-sm-6">
-						   <div class="drop_1il clearfix"><h5 class="mgt">2 ITEMS</h5></div>
-						  </div>
-						  <div class="col-sm-6">
-						   <div class="drop_1il text-right clearfix"><h5 class="mgt"><a href="#">VIEW CART</a></h5></div>
-						  </div>
-						 </div>
-						 <div class="drop_1i1 clearfix">
-						  <div class="col-sm-6">
-						   <div class="drop_1i1l clearfix"><h6 class="mgt bold"><a href="#">Nulla Quis</a> <br> <span class="normal col_2">1x - $89.00</span></h6></div>
-						  </div>
-						  <div class="col-sm-4">
-						   <div class="drop_1i1r clearfix"><a href="#"><img src="img/22.jpg" class="iw" alt="abc"></a></div>
-						  </div>
-						  <div class="col-sm-2">
-						   <div class="drop_1i1l text-right clearfix"><h6 class="mgt bold"> <span><i class="fa fa-remove"></i></span></h6></div>
-						  </div>
-						 </div>
-						 <div class="drop_1i1 clearfix">
-						  <div class="col-sm-6">
-						   <div class="drop_1i1l clearfix"><h6 class="mgt bold"><a href="#">Eget Nulla</a> <br> <span class="normal col_2">1x - $89.00</span></h6></div>
-						  </div>
-						  <div class="col-sm-4">
-						   <div class="drop_1i1r clearfix"><a href="#"><img src="img/24.png" class="iw" alt="abc"></a></div>
-						  </div>
-						  <div class="col-sm-2">
-						   <div class="drop_1i1l text-right clearfix"><h6 class="mgt bold"> <span><i class="fa fa-remove"></i></span></h6></div>
-						  </div>
-						 </div>
-						 <div class="drop_1i2 clearfix">
-						  <div class="col-sm-6">
-						   <div class="drop_1il clearfix"><h5 class="mgt">TOTAL</h5></div>
-						  </div>
-						  <div class="col-sm-6">
-						   <div class="drop_1il text-right clearfix"><h5 class="mgt">$138.00</h5></div>
-						  </div>
-						 </div>
-						 <div class="drop_1i3 text-center clearfix">
-						  <div class="col-sm-12">
-						   <h5><a class="button_1 block" href="#">CHECKOUT</a></h5>
-						   <h5><a class="button block" href="#">VIEW CART</a></h5>
-						  </div>
-						 </div>
-						</li>
-					  </ul>
                     </li> --}}
+
+				<li><a class="m_tag" href="{{url('/Aboutus')}}">About Us</a></li>
+				<li><a class="m_tag" href="{{url('/Contactus')}}">Contact</a></li>
+
+
 			</ul>
 
 
