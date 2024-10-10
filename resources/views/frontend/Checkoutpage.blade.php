@@ -9,7 +9,7 @@
         <div class="container py-4">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8">
-                    <h5>Total Cost: ₹{{ session('totalPrice') }}</h5>
+                    <h5>Total Cost: ₹{{ session('totalAmount') }}</h5>
 
                     <!-- Updated Card Design -->
                     <div class="card rounded-3 mb-4 shadow-sm border-0" style="border-radius: 10px;">

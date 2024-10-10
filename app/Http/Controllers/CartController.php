@@ -13,6 +13,15 @@ class CartController extends Controller
 {
     public function cart()
     {
+        $cart = session('cart', []); // Assuming you are storing cart items in session
+        $totalAmount = 0;
+
+        foreach ($cart as $item) {
+            $itemTotal = $item['price'] * $item['quantity'];
+            $totalAmount += $itemTotal;
+        }
+
+        session(['totalAmount' => $totalAmount]);
         // $cart = session()->get('cart');
         $cart = Session::get('cart', []);
 
@@ -20,7 +29,7 @@ class CartController extends Controller
             $cart = [];
         }
         Log::info('Cart contents: ', $cart);
-        return view('frontend.cartpage',compact('cart'));
+        return view('frontend.cartpage',compact('cart', 'totalAmount'));
     }
 
 //     public function addToCart(Request $request)
