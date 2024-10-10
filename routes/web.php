@@ -9,12 +9,45 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminSubcategoryController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',function(){
+    return view('frontend.index');
 });
 
+
+// Login Details
+Route::get('/Login',[LoginController::class,'loginview']);
+Route::get('/register',[LoginController::class,'registerview']);
+Route::post('/Signup2', [LoginController::class, 'signupdata']);
+Route::post('/Login2',[LoginController::class, 'logindata']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Home Page Details
+Route::get('/allproducts', [HomeController::class, 'allproducts']);
+Route::get('/product/{id}', [HomeController::class, 'productidview'])->name('product.show');
+
+
+// Crat Details
+Route::get('/cart',[CartController::class,'cart'])->name('cart.view');
+Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/remove', [CartController::class,'removeFromCart'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
+// Checkout Details
+Route::get('/checkoutpage',[CheckoutController::class,'checkout']);
+// Route::get('/cart',[CartController::class,'cart']);
+
+
+// Admin Details
 Route::get('/Admin', [AdminController::class, 'adminhome']);
 Route::get('/Admin_customersdetail', [AdminController::class, 'admincustomerdetail']);
 Route::get('/Adminorder', [AdminController::class, 'adminorder']);
