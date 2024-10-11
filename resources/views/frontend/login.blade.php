@@ -38,7 +38,7 @@
                 <button type="submit" style="width: 100%; background-color: #d93d3d; color: white; padding: 10px; font-size: 2rem; border: none; border-radius: 5px; cursor: pointer;">Login</button>
             </div>
             <div style="text-align: center; margin-bottom: 10px;">
-                <a href="#" style="color: #d93d3d; text-decoration: none; font-size: 2rem;">Forgot Password?</a>
+                <a href="{{url('/forgotpassword')}}" style="color: #d93d3d; text-decoration: none; font-size: 2rem;">Forgot Password?</a>
             </div>
             <div style="text-align: center;">
                 <span style="font-size: 2rem;">Don't have an account? <a href="{{url('/register')}}" style="color: #d93d3d; text-decoration: none;">Sign Up</a></span>

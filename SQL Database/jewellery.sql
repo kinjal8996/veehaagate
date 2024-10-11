@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2024 at 12:11 PM
+-- Generation Time: Oct 11, 2024 at 11:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -169,7 +169,9 @@ CREATE TABLE `checkoutdetails` (
 --
 
 INSERT INTO `checkoutdetails` (`checkout_id`, `customer_id`, `order_id`, `name`, `email`, `address`, `state`, `city`, `pincode`, `contact`, `payment_id`, `total_cost`, `created_at`, `updated_at`) VALUES
-(1, 1, 'order_366817', 'Kesha Patel', 'keshapatel2302@gmail.com', '10 Raj park\r\nAksharfarm road', 'Gujarat', 'Vadodara', 388001, 987654321, 'pay_P7IACLiAedYKpR', 2000, '2024-10-10 04:22:11', '2024-10-10 04:22:11');
+(1, 1, 'order_366817', 'Kesha Patel', 'keshapatel2302@gmail.com', '10 Raj park\r\nAksharfarm road', 'Gujarat', 'Vadodara', 388001, 987654321, 'pay_P7IACLiAedYKpR', 2000, '2024-10-10 04:22:11', '2024-10-10 04:22:11'),
+(2, 1, 'order_458451', 'Kesha Patel', 'keshapatel2302@gmail.com', '10 Raj park\r\nAksharfarm road', 'Gujarat', 'Vadodara', 388001, 987654321, 'pay_P7K2zDR1sowpoB', 2000, '2024-10-10 06:12:46', '2024-10-10 06:12:46'),
+(3, 2, 'order_080352', 'Kesha Patel', 'keshapatel2302@gmail.com', '10 Raj park\r\nAksharfarm road', 'Gujarat', 'Vadodara', 388001, 987654321, 'pay_P7gWd8sItwwUdq', 2000, '2024-10-11 04:12:04', '2024-10-11 04:12:04');
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `fullname`, `email`, `password`, `address`, `state`, `city`, `pincode`, `contact`, `created_at`, `updated_at`) VALUES
-(1, 'Kesha Patel', 'keshapatel6542@gmail.com', '$2y$12$p4jarXrUhUZsAtd4t.1fweCTzSUA/58S4mobRUGSYmPJdrQszhmCO', '10 Raj park', 'Gujarat', 'Vadodara', 388001, 987654321, '2024-10-10 03:34:40', '2024-10-10 03:34:40');
+(1, 'Kesha A Patel', 'keshapatel6542@gmail.com', '$2y$12$p4jarXrUhUZsAtd4t.1fweCTzSUA/58S4mobRUGSYmPJdrQszhmCO', '10 Raj park', 'Gujarat', 'Vadodara', 388001, 987654321, '2024-10-10 03:34:40', '2024-10-10 23:47:14'),
+(2, 'Trupti Patel', 'keshapatel2302@gmail.com', '$2y$12$hSxfcX4MtzhCCZbvQylWBu04C/2tlhSjXhM3dUTD/Et59DctZ4NdG', '10 Raj park', 'Gujarat', 'Vadodara', 388001, 987654321, '2024-10-11 03:40:31', '2024-10-11 03:42:43');
 
 -- --------------------------------------------------------
 
@@ -250,6 +253,13 @@ CREATE TABLE `feedback` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedback_id`, `name`, `email`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Kesha Patel', 'keshapatel2302@gmail.com', 'Products are amazing', '2024-10-10 05:12:07', '2024-10-10 05:12:07');
 
 -- --------------------------------------------------------
 
@@ -321,7 +331,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2024_10_07_080530_add_deleted_at_to_aboutus_table', 5),
 (17, '2024_10_07_092353_create_contactus_table', 6),
 (18, '2024_10_09_074422_create_adminlogindetails_table', 7),
-(19, '2024_10_09_094927_create_feedback_table', 8);
+(19, '2024_10_09_094927_create_feedback_table', 8),
+(20, '2024_10_11_085933_create_resetpassword_token_table', 9);
 
 -- --------------------------------------------------------
 
@@ -351,7 +362,9 @@ INSERT INTO `orders` (`id`, `order_id`, `customer_id`, `product_ids`, `product_n
 (2, 'order_101650', 1, '2', 'Choker', '2', '1000', 2000, '2024-10-10 04:06:55', '2024-10-10 04:06:55'),
 (3, 'order_713941', 1, '2', 'Choker', '2', '1000', 2000, '2024-10-10 04:13:36', '2024-10-10 04:13:36'),
 (4, 'order_942246', 1, '2', 'Choker', '2', '1000', 2000, '2024-10-10 04:20:52', '2024-10-10 04:20:52'),
-(5, 'order_366817', 1, '2', 'Choker', '2', '1000', 2000, '2024-10-10 04:22:11', '2024-10-10 04:22:11');
+(5, 'order_366817', 1, '2', 'Choker', '2', '1000', 2000, '2024-10-10 04:22:11', '2024-10-10 04:22:11'),
+(6, 'order_458451', 1, '4', 'Diamond Choker', '2', '1000', 2000, '2024-10-10 06:12:46', '2024-10-10 06:12:46'),
+(7, 'order_080352', 2, '4', 'Diamond Choker', '2', '1000', 2000, '2024-10-11 04:12:04', '2024-10-11 04:12:04');
 
 -- --------------------------------------------------------
 
@@ -379,6 +392,10 @@ CREATE TABLE `products` (
   `description` varchar(500) NOT NULL,
   `price` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
+  `img1` varchar(255) NOT NULL,
+  `img2` varchar(255) NOT NULL,
+  `img3` varchar(255) NOT NULL,
+  `img4` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -388,14 +405,35 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `category_id`, `subcategory_id`, `name`, `description`, `price`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 3, 3, 'Kadas', 'Authentic design', 2000, '1728452075img.jpeg', '2024-10-09 00:04:35', '2024-10-09 00:17:34', NULL),
-(2, 3, 1, 'Choker', 'Diamond Choker', 1000, '1728453714img.jpeg', '2024-10-09 00:20:58', '2024-10-09 00:31:54', NULL),
-(3, 4, 1, 'Diamond Neckles', 'This is a special party neckles', 2000, '1728533498img.jpeg', '2024-10-09 22:41:38', '2024-10-09 22:41:38', NULL),
-(4, 2, 1, 'Diamond Choker', 'This is diamond choker', 1000, '1728533547img.jpg', '2024-10-09 22:42:27', '2024-10-09 22:42:27', NULL),
-(5, 2, 2, 'Pink Jumkas', 'This pink Jumkas with Diamond', 1500, '1728533621img.jpg', '2024-10-09 22:43:41', '2024-10-09 22:43:41', NULL),
-(6, 3, 7, 'Diamond Ring', 'This is Diamond ring', 1200, '1728533703img.jpeg', '2024-10-09 22:45:03', '2024-10-09 22:45:03', NULL),
-(7, 1, 1, 'Gold Neckles', 'Full neck cover neckles', 2000, '1728534766img.jpg', '2024-10-09 23:02:46', '2024-10-09 23:02:46', NULL);
+INSERT INTO `products` (`product_id`, `category_id`, `subcategory_id`, `name`, `description`, `price`, `image`, `img1`, `img2`, `img3`, `img4`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 3, 3, 'Kadas', 'Authentic design', 2000, '1728452075img.jpeg', '1728621084img1.jpg', '1728621084img2.jpeg', '1728621084img3.jpg', '1728621084img4.jpg', '2024-10-09 00:04:35', '2024-10-10 23:01:24', NULL),
+(2, 3, 1, 'Choker', 'Diamond Choker', 1000, '1728453714img.jpeg', '1728621123img1.jpg', '1728621123img2.jpg', '1728621123img3.jpg', '1728621123img4.jpeg', '2024-10-09 00:20:58', '2024-10-10 23:02:03', NULL),
+(3, 4, 1, 'Diamond Neckles', 'This is a special party neckles', 2000, '1728533498img.jpeg', '1728621261img1.jpg', '1728621261img2.jpeg', '1728621261img3.jpg', '1728621261img4.jpeg', '2024-10-09 22:41:38', '2024-10-10 23:04:21', NULL),
+(4, 2, 1, 'Diamond Choker', 'This is diamond choker', 1000, '1728533547img.jpg', '1728621235img1.jpg', '1728621235img2.jpeg', '1728621235img3.jpeg', '1728621235img4.jpg', '2024-10-09 22:42:27', '2024-10-10 23:03:55', NULL),
+(5, 2, 2, 'Pink Jumkas', 'This pink Jumkas with Diamond', 1500, '1728533621img.jpg', '1728621209img1.jpeg', '1728621209img2.jpg', '1728621209img3.jpg', '1728621209img4.jpg', '2024-10-09 22:43:41', '2024-10-10 23:03:29', NULL),
+(6, 3, 7, 'Diamond Ring', 'This is Diamond ring', 1200, '1728533703img.jpeg', '1728621181img1.jpg', '1728621181img2.jpg', '1728621181img3.jpeg', '1728621181img4.jpeg', '2024-10-09 22:45:03', '2024-10-10 23:03:01', NULL),
+(7, 1, 1, 'Gold Neckles', 'Full neck cover neckles', 2000, '1728534766img.jpg', '1728621151img1.jpg', '1728621151img2.jpg', '1728621151img3.jpeg', '1728621151img4.jpg', '2024-10-09 23:02:46', '2024-10-10 23:02:31', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resetpassword_token`
+--
+
+CREATE TABLE `resetpassword_token` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `resetpassword_token`
+--
+
+INSERT INTO `resetpassword_token` (`id`, `email`, `token`, `created_at`, `updated_at`) VALUES
+(1, 'keshapatel2302@gmail.com', 'clayrJ2ewUOyrfqSVd5J', '2024-10-11 03:41:44', '2024-10-11 03:41:44');
 
 -- --------------------------------------------------------
 
@@ -417,8 +455,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('tyQX4i8BYLdl55Nkkz1J12kRLUKl3groit6z8y5q', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiR1hzaFNRS1dBQXU3RFhGbjJYbjVvdmFWSHRUN0xUNjRidVdMcmRsZSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXJ0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo0OiJjYXJ0IjthOjE6e2k6MTthOjU6e3M6MTA6InByb2R1Y3RfaWQiO2k6MTtzOjU6ImltYWdlIjtzOjE4OiIxNzI4NDUyMDc1aW1nLmpwZWciO3M6NDoibmFtZSI7czo1OiJLYWRhcyI7czo1OiJwcmljZSI7aToyMDAwO3M6ODoicXVhbnRpdHkiO047fX19', 1728548530),
-('ud8ANM81LHrbmoAJYbHhNozfVjerZfWBU1o2gSq1', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidWxDRERpQnhLQVpYSzN4M2JBWG0zZkxBeTFtN3Y1RkdqaW9SNHZHZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxMToiY3VzdG9tZXJfaWQiO2k6MTt9', 1728554922);
+('CZ2QN8sJ544uKrLAQQislmz1wZqdBNK0ASyySdy6', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibGtiRzl1SmdBQjl4bmdrQXVOTWZpMmEzbUNBTnFiQ1RRVllIcFFHUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czoxMToiY3VzdG9tZXJfaWQiO2k6Mjt9', 1728639729);
 
 -- --------------------------------------------------------
 
@@ -580,6 +617,12 @@ ALTER TABLE `products`
   ADD KEY `products_subcategory_id_foreign` (`subcategory_id`);
 
 --
+-- Indexes for table `resetpassword_token`
+--
+ALTER TABLE `resetpassword_token`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -633,7 +676,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `checkoutdetails`
 --
 ALTER TABLE `checkoutdetails`
-  MODIFY `checkout_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `checkout_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -645,7 +688,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -657,7 +700,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `feedback_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -669,19 +712,25 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `resetpassword_token`
+--
+ALTER TABLE `resetpassword_token`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategory`

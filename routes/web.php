@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminSubcategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ForgotpasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
@@ -65,6 +66,13 @@ Route::post('/handlepayment',[PaymentController::class,'handlepayment']);
 Route::get('/edit-profile', [ProfileController::class, 'edit']);
 Route::post('/edit-profile2', [ProfileController::class, 'update']);
 Route::get('/orderhistory',[ProfileController::class, 'orderhistory']);
+
+
+// Forgot and Reset Password Routes
+Route::get('/forgotpassword',[ForgotpasswordController::class,'forgotpasswordload']);
+Route::post('/resetpasswordlink', [ForgotpasswordController::class, 'forgotpassword'])->name('resetpasswordlink');
+Route::get('/reset-password',[ForgotpasswordController::class,'resetpasswordload']);
+Route::post('/resetpasswordset', [ForgotpasswordController::class, 'resetpassword'])->name('resetpasswordset');
 
 
 // Admin Details
