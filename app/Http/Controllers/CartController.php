@@ -89,7 +89,9 @@ public function addToCart(Request $request)
     // Store updated cart in session
     Session::put('cart', $cart);
 
-    return response()->json(['message' => 'Product added to cart successfully!']);
+    $totalItems = array_sum(array_column($cart, 'quantity'));
+
+    return response()->json(['message' => 'Product added to cart successfully!','totalItems' => $totalItems ]);
 }
 
 public function removeFromCart(Request $request)

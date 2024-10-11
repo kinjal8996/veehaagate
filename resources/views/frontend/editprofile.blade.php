@@ -15,7 +15,7 @@
 
                     <form class="row g-3" action="{{ url('/edit-profile2') }}" method="POST">
                         @csrf
-                        <table class="table">
+                        <table class="table table-bordered text-center">
                             <tr>
                                 <td><label class="form-label"> Full Name:</label></td>
                                 <td>

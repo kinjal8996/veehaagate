@@ -45,14 +45,33 @@
 
        @auth
 
-       <div class="header_1ri  clearfix" >
+       {{-- <div class="header_1ri  clearfix" >
+
         <span class="span_1">
           <a class="col_1" href="#"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </span>
+
+        <h5 class="mgt">
+            <a href="{{ route('cart.view') }}">My <br> Cart  </a>
+        </h5>
+      </div> --}}
+
+      @php
+    $cart = session('cart', []);
+    $totalItems = array_sum(array_column($cart, 'quantity'));
+@endphp
+      <div class="header_1ri clearfix" style="position: relative;">
+        <span class="span_1">
+            <a class="col_1" href="#">
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                <span class="badge rounded-pill bg-danger" style="position: absolute; top: -5px; right: -0px;">{{ $totalItems }}</span>
+            </a>
         </span>
         <h5 class="mgt">
             <a href="{{ route('cart.view') }}">My <br> Cart</a>
         </h5>
-      </div>
+    </div>
+
 
        <div class="header_1ri border_none clearfix">
         <span class="span_1">

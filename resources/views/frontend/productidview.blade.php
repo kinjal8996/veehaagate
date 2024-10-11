@@ -237,6 +237,7 @@
             },
             success: function(response) {
                 alert(response.message); // Show success message
+                $('.badge').text(response.totalItems);
             },
             error: function(xhr) {
                 alert('Error: ' + xhr.responseJSON.message); // Show error message
