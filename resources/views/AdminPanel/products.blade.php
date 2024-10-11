@@ -37,6 +37,10 @@
                     <thead>
                         <tr>
                             <th style="width: 40%;">Image</th>
+                            <th style="width: 40%;">Img1</th>
+                            <th style="width: 40%;">Img2</th>
+                            <th style="width: 40%;">Img3</th>
+                            <th style="width: 40%;">Img4</th>
                             <th style="width: 8%;">Product Id</th>
                             <th style="width: 10%;">Category</th>
                             <th style="width: 10%;">Subcategory</th>
@@ -53,6 +57,22 @@
                         <tr>
                             <td>
                                 <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded"
+                                    alt="Image" style="width: 500px; height: 70px">
+                            </td>
+                            <td>
+                                <img src="{{ asset('productsimg/' . $product->img1) }}" class="img-fluid rounded"
+                                    alt="Image" style="width: 500px; height: 70px">
+                            </td>
+                            <td>
+                                <img src="{{ asset('productsimg/' . $product->img2) }}" class="img-fluid rounded"
+                                    alt="Image" style="width: 500px; height: 70px">
+                            </td>
+                            <td>
+                                <img src="{{ asset('productsimg/' . $product->img3) }}" class="img-fluid rounded"
+                                    alt="Image" style="width: 500px; height: 70px">
+                            </td>
+                            <td>
+                                <img src="{{ asset('productsimg/' . $product->img4) }}" class="img-fluid rounded"
                                     alt="Image" style="width: 500px; height: 70px">
                             </td>
                             <td>{{ $product->product_id }}</td>

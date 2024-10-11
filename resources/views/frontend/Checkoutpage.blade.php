@@ -125,13 +125,13 @@
 
 @section('main-container')
 
-<div class="container mt-4">
-    <h2 class="text-center">Checkout Page</h2>
+<div class="container mt-4 mb-5">
+    <h2 class="text-center" style="margin-bottom: 10px;">Checkout Page</h2>
 
-    <section style="background-color: #eee;">
-        <div class="container h-100 py-5">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-10">
+    <section style="background-color: #eee; padding: 40px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 30px;">
+        <div class="container  py-4">
+            <div class="row  justify-content-center ">
+                <div class="col-10 col-md-8">
                     <h5>Total Cost: ₹{{ session('totalAmount') }}</h5>
                     <div class="card rounded-3 mb-4">
                         <div class="card-body p-4">

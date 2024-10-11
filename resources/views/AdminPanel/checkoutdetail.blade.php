@@ -48,8 +48,8 @@
                     <tbody>
                         @foreach ($checkout as $checkout )
                         <tr>
-                            <td>{{$checkout->Id}}</td>
-                            <td>{{$checkout->customer->name}}</td>
+                            <td>{{$checkout->checkout_id}}</td>
+                            <td>{{$checkout->customer->fullname}}</td>
                             <td>{{$checkout->order_id}}</td>
                             <td>{{$checkout->payment_id}}</td>
                             <td>{{$checkout->name}}</td>

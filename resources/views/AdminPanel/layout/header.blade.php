@@ -55,6 +55,14 @@
                 </a>
               </li>
               <li class="sidebar-item">
+                <a class="sidebar-link" href="{{url('/Adminfeedback')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-message"></i>
+                  </span>
+                  <span class="hide-menu">Feedback Details</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
                 <a class="sidebar-link" href="{{url('/Adminbannerdetail')}}" aria-expanded="false">
                   <span>
                     <i class="ti ti-news"></i>

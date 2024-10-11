@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('description',500);
             $table->integer('price');
             $table->string('image',255);
+            $table->string('img1',255);
+            $table->string('img2',255);
+            $table->string('img3',255);
+            $table->string('img4',255);
             $table->timestamps();
         });
     }

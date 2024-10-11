@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Checkout;
+use App\Models\Feedback;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
@@ -43,7 +44,7 @@ class AdminController extends Controller
 
         if ($search != "") {
             $order = Order::whereHas('customer', function($query) use ($search) {
-                $query->where('name', 'LIKE', "%$search%");
+                $query->where('fullname', 'LIKE', "%$search%");
             })->get();
         } else {
             $order = Order::with('customer')->get();
@@ -60,7 +61,7 @@ class AdminController extends Controller
 
         if ($search != "") {
             $checkout = Checkout::whereHas('customer', function($query) use ($search) {
-                $query->where('name', 'LIKE', "%$search%");
+                $query->where('fullname', 'LIKE', "%$search%");
             })->get();
         } else {
             $checkout = Checkout::with('customer')->get();
@@ -68,6 +69,21 @@ class AdminController extends Controller
 
         $data = compact('checkout', 'search');
         return view('AdminPanel.checkoutdetail')->with($data);
+    }
+
+    public function feedbackdetail(Request $request)
+    {
+        $search=$request['search']??"";
+        if($search!=""){
+            $feedback=Feedback::where('name',"LIKE","%$search%")->orwhere('email',"LIKE","%$search%")->get();
+        }
+        else{
+            $feedback=Feedback::all();
+        }
+
+        $data=compact('feedback', 'search');
+
+        return view('AdminPanel.feedback')->with($data);
     }
 
 }

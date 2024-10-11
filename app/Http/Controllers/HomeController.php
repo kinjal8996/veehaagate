@@ -82,5 +82,12 @@ class HomeController extends Controller
         return view('frontend.layout.header', compact('products'));
     }
 
+    public function categoryfooter()
+    {
+        $categories = Category::all();
+
+        return view('frontend.layout.footer', compact('categories'));
+    }
+
 
 }

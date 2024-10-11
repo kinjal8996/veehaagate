@@ -38,42 +38,118 @@ class AdminProductController extends Controller
         return view('AdminPanel.productsform')->with($data);
     }
 
+    // public function productform(Request $request)
+    // {
+
+    //     $validator = Validator::make($request->all(), [
+    //         'category' => 'required|exists:category,category_id',
+    //         'subcategory' => 'required|exists:subcategory,subcategory_id',
+    //         'name' => 'required|string',
+    //         'description' => 'required|string|max:255',
+    //         'price' => 'required|integer',
+    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+    //         'img1' => 'required|image|mimes:jpeg,png,jpg,gif',
+    //         'img2' => 'required|image|mimes:jpeg,png,jpg,gif',
+    //         'img3' => 'required|image|mimes:jpeg,png,jpg,gif',
+    //         'img4' => 'required|image|mimes:jpeg,png,jpg,gif',
+
+
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $product= new Product();
+    //     $product->category_id=$request->input('category');
+    //     $product->subcategory_id=$request->input('subcategory');
+    //     $product->name=$request->input('name');
+    //     $product->description=$request->input('description');
+    //     $product->price = $request->input('price');
+
+    //     if ($request->hasFile('image')) {
+    //         $file=$request->file('image');
+    //         $fileName = time() . "img." . $request->file('image')->getClientOriginalExtension();
+    //         $file->move('productsimg', $fileName);
+    //         $product->image = $fileName;
+    //     }
+
+    //     $product->save();
+
+    //     return redirect('/Adminproduct');
+
+    // }
     public function productform(Request $request)
-    {
+{
+    $validator = Validator::make($request->all(), [
+        'category' => 'required|exists:category,category_id',
+        'subcategory' => 'required|exists:subcategory,subcategory_id',
+        'name' => 'required|string',
+        'description' => 'required|string|max:255',
+        'price' => 'required|integer',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'img1' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'img2' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'img3' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'img4' => 'required|image|mimes:jpeg,png,jpg,gif',
+    ]);
 
-        $validator = Validator::make($request->all(), [
-            'category' => 'required|exists:category,category_id',
-            'subcategory' => 'required|exists:subcategory,subcategory_id',
-            'name' => 'required|string',
-            'description' => 'required|string|max:255',
-            'price' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
-
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $product= new Product();
-        $product->category_id=$request->input('category');
-        $product->subcategory_id=$request->input('subcategory');
-        $product->name=$request->input('name');
-        $product->description=$request->input('description');
-        $product->price = $request->input('price');
-
-        if ($request->hasFile('image')) {
-            $file=$request->file('image');
-            $fileName = time() . "img." . $request->file('image')->getClientOriginalExtension();
-            $file->move('productsimg', $fileName);
-            $product->image = $fileName;
-        }
-
-        $product->save();
-
-        return redirect('/Adminproduct');
-
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    $product = new Product();
+    $product->category_id = $request->input('category');
+    $product->subcategory_id = $request->input('subcategory');
+    $product->name = $request->input('name');
+    $product->description = $request->input('description');
+    $product->price = $request->input('price');
+
+    // Handling the main image
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $fileName = time() . "img." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->image = $fileName;
+    }
+
+    // Handling img1
+    if ($request->hasFile('img1')) {
+        $file = $request->file('img1');
+        $fileName = time() . "img1." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img1 = $fileName;
+    }
+
+    // Handling img2
+    if ($request->hasFile('img2')) {
+        $file = $request->file('img2');
+        $fileName = time() . "img2." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img2 = $fileName;
+    }
+
+    // Handling img3
+    if ($request->hasFile('img3')) {
+        $file = $request->file('img3');
+        $fileName = time() . "img3." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img3 = $fileName;
+    }
+
+    // Handling img4
+    if ($request->hasFile('img4')) {
+        $file = $request->file('img4');
+        $fileName = time() . "img4." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img4 = $fileName;
+    }
+
+    $product->save();
+
+    return redirect('/Adminproduct');
+}
+
 
     public function producttrash()
     {
@@ -102,34 +178,120 @@ class AdminProductController extends Controller
 
     }
 
+    // public function productupdate($id, Request $request)
+    // {
+    //     $product=Product::find($id);
+
+    //     $product->category_id=$request->input('category');
+    //     $product->subcategory_id=$request->input('subcategory');
+    //     $product->name=$request->input('name');
+    //     $product->description=$request->input('description');
+    //     $product->price= $request->input('price');
+
+    //     if ($request->hasFile('image')) {
+    //         // Delete the old image if it exists
+    //         if ($product->image && file_exists(public_path('productsimg/' . $product->image))) {
+    //             unlink(public_path('productsimg/' . $product->image));
+    //         }
+
+    //         // Upload the new image
+    //         $file = $request->file('image');
+    //         $fileName = time() . "img." . $file->getClientOriginalExtension();
+    //         $file->move('productsimg', $fileName);
+    //         $product->image = $fileName;
+    //     }
+
+    //     $product->save();
+
+    //     return redirect('/Adminproduct');
+
+    // }
+
     public function productupdate($id, Request $request)
-    {
-        $product=Product::find($id);
+{
+    $product = Product::find($id);
 
-        $product->category_id=$request->input('category');
-        $product->subcategory_id=$request->input('subcategory');
-        $product->name=$request->input('name');
-        $product->description=$request->input('description');
-        $product->price= $request->input('price');
+    $product->category_id = $request->input('category');
+    $product->subcategory_id = $request->input('subcategory');
+    $product->name = $request->input('name');
+    $product->description = $request->input('description');
+    $product->price = $request->input('price');
 
-        if ($request->hasFile('image')) {
-            // Delete the old image if it exists
-            if ($product->image && file_exists(public_path('productsimg/' . $product->image))) {
-                unlink(public_path('productsimg/' . $product->image));
-            }
-
-            // Upload the new image
-            $file = $request->file('image');
-            $fileName = time() . "img." . $file->getClientOriginalExtension();
-            $file->move('productsimg', $fileName);
-            $product->image = $fileName;
+    // Handling the main image
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($product->image && file_exists(public_path('productsimg/' . $product->image))) {
+            unlink(public_path('productsimg/' . $product->image));
         }
 
-        $product->save();
-
-        return redirect('/Adminproduct');
-
+        // Upload the new image
+        $file = $request->file('image');
+        $fileName = time() . "img." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->image = $fileName;
     }
+
+    // Handling img1
+    if ($request->hasFile('img1')) {
+        // Delete the old img1 if it exists
+        if ($product->img1 && file_exists(public_path('productsimg/' . $product->img1))) {
+            unlink(public_path('productsimg/' . $product->img1));
+        }
+
+        // Upload the new img1
+        $file = $request->file('img1');
+        $fileName = time() . "img1." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img1 = $fileName;
+    }
+
+    // Handling img2
+    if ($request->hasFile('img2')) {
+        // Delete the old img2 if it exists
+        if ($product->img2 && file_exists(public_path('productsimg/' . $product->img2))) {
+            unlink(public_path('productsimg/' . $product->img2));
+        }
+
+        // Upload the new img2
+        $file = $request->file('img2');
+        $fileName = time() . "img2." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img2 = $fileName;
+    }
+
+    // Handling img3
+    if ($request->hasFile('img3')) {
+        // Delete the old img3 if it exists
+        if ($product->img3 && file_exists(public_path('productsimg/' . $product->img3))) {
+            unlink(public_path('productsimg/' . $product->img3));
+        }
+
+        // Upload the new img3
+        $file = $request->file('img3');
+        $fileName = time() . "img3." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img3 = $fileName;
+    }
+
+    // Handling img4
+    if ($request->hasFile('img4')) {
+        // Delete the old img4 if it exists
+        if ($product->img4 && file_exists(public_path('productsimg/' . $product->img4))) {
+            unlink(public_path('productsimg/' . $product->img4));
+        }
+
+        // Upload the new img4
+        $file = $request->file('img4');
+        $fileName = time() . "img4." . $file->getClientOriginalExtension();
+        $file->move('productsimg', $fileName);
+        $product->img4 = $fileName;
+    }
+
+    $product->save();
+
+    return redirect('/Adminproduct');
+}
+
 
     public function productdelete($id)
     {

@@ -44,7 +44,7 @@
                         @foreach ($order as $order )
                         <tr>
                             <td>{{$order->order_id}}</td>
-                            <td>{{$order->customer->name}}</td>
+                            <td>{{$order->customer->fullname}}</td>
                             <td>
                                 <ul>
                                     @php

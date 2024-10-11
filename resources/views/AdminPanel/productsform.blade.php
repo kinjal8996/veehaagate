@@ -90,6 +90,62 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
+ {{-- Add Extra 4 images --}}
+                <div class="mb-3">
+                    <label class="form-label">Current Image:</label>
+                    @if(!empty($products->img1))
+                        <div class="mb-2">
+                            <img src="{{ asset('productsimg/' . $products->img1) }}" alt="Product Image" style="width: 200px; height: 150px;" />
+                        </div>
+                    @endif
+                    <label for="formFile" class="form-label">Upload New Image1 (optional):</label>
+                    <input class="form-control" type="file" name="img1" id="formFile">
+                    @error('img1')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Current Image:</label>
+                    @if(!empty($products->img2))
+                        <div class="mb-2">
+                            <img src="{{ asset('productsimg/' . $products->img2) }}" alt="Product Image" style="width: 200px; height: 150px;" />
+                        </div>
+                    @endif
+                    <label for="formFile" class="form-label">Upload New Image2 (optional):</label>
+                    <input class="form-control" type="file" name="img2" id="formFile">
+                    @error('img2')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Current Image:</label>
+                    @if(!empty($products->img3))
+                        <div class="mb-2">
+                            <img src="{{ asset('productsimg/' . $products->img2) }}" alt="Product Image" style="width: 200px; height: 150px;" />
+                        </div>
+                    @endif
+                    <label for="formFile" class="form-label">Upload New Image3 (optional):</label>
+                    <input class="form-control" type="file" name="img3" id="formFile">
+                    @error('img3')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Current Image:</label>
+                    @if(!empty($products->img4))
+                        <div class="mb-2">
+                            <img src="{{ asset('productsimg/' . $products->img4) }}" alt="Product Image" style="width: 200px; height: 150px;" />
+                        </div>
+                    @endif
+                    <label for="formFile" class="form-label">Upload New Image4 (optional):</label>
+                    <input class="form-control" type="file" name="img4" id="formFile">
+                    @error('img4')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-dark">Submit</button>

@@ -23,7 +23,8 @@
    <div class="header_1 clearfix">
     <div class="col-sm-2">
 	 <div class="header_1l text-center clearfix">
-	   <h2 class="mgt"><a class="col_1" href="index.html">Real <span class="span_1">JEWELLERS</span>  <span class="span_2">JEWELRY WORLD</span></a></h2>
+        <h2 style="margin-top: 28px;"><a class="col_1" href="{{url('/')}}">Veehaagate</a></h2>
+        {{-- <h2 class="mgt"><a class="col_1" href="index.html">Real <span class="span_1">JEWELLERS</span>  <span class="span_2">JEWELRY WORLD</span></a></h2> --}}
 	 </div>
 	</div>
 	<div class="col-sm-10">
@@ -37,18 +38,41 @@
 					</span>
 				 </div>
 	   </div>
-	   <div class="header_1ri clearfix" >
+	   {{-- <div class="header_1ri clearfix" >
 	     <span class="span_1"><a class="col_1" href="#"><i class="fa fa-map-marker"></i></a></span>
 		 <h5 class="mgt"><a href="#">Store <br> Locator</a></h5>
-	   </div>
+	   </div> --}}
 
-       <div class="header_1ri clearfix">
-        @auth
+       @auth
 
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-dark text-center" style="margin-left: 20px; background-color: #d93d3d;"><b>Logout</b></button>
-        </form>
+       <div class="header_1ri  clearfix" >
+        <span class="span_1">
+          <a class="col_1" href="#"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </span>
+        <h5 class="mgt">
+            <a href="{{ route('cart.view') }}">My <br> Cart</a>
+        </h5>
+      </div>
+
+       <div class="header_1ri border_none clearfix">
+        <span class="span_1">
+            <a class="col_1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user"></i>
+            </a>
+          </span>
+
+        <h5 class="mgt dropdown">
+          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My<br>Profile </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{url('/edit-profile')}}">Profile</a></li>
+            <li><a href="{{url('/orderhistory')}}">Order History</a></li>
+            <li> <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-dark text-center" style="margin-left: 20px; background-color: #d93d3d; color:white;"><b>Logout</b></button>
+            </form></li>
+          </ul>
+        </h5>
+
         @else
         <span class="span_1">
             <a class="col_1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,19 +87,12 @@
             <li><a href="{{url('/register')}}">Sign Up</a></li>
           </ul>
         </h5>
-        @endauth
+
       </div>
+      @endauth
 
 
-       <div class="header_1ri border_none clearfix" >
-        <span class="span_1">
-          <a class="col_1" href="#"><i class="glyphicon glyphicon-shopping-cart"></i></a>
-        </span>
-        <h5 class="mgt">
-            <a href="{{ route('cart.view') }}">My <br> Cart</a>
 
-        </h5>
-      </div>
 
 
 

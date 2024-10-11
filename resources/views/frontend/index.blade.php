@@ -1,6 +1,15 @@
 @extends('frontend.layout.main')
 @section('main-container')
 
+@if(session('success'))
+{{-- <div class="alert alert-success">
+    {{ session('success') }}
+</div> --}}
+<script>
+    alert("Welcome, {{ session('username') }}!");
+</script>
+@endif
+
 
    @php
    $banners = \App\Models\Banner::all();

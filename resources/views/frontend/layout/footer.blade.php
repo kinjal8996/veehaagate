@@ -54,35 +54,36 @@
     <div class="container">
         <div class="row">
             <div class="footer_1 mgt clearfix">
+                @php
+                $categories = \App\Models\Category::all();
+              @endphp
+
                 <div class="col-sm-2">
                     <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Our Story</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">The Rd Jewellers</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">CSR Activities</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Get In Touch</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Career</a></h5>
+                        <h4 class="mgt col_3" style="font-size: 1.7rem;"> OUR CATEGORIES</h4>
+                        @foreach($categories as $category)
+                        <h5 style="font-size: 1.5rem;">
+                            <a class="hvr-forward col" href="#">{{ $category->name }}</a>
+                        </h5>
+                    @endforeach
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Our Collections</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Wedding</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Diamond</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Kids</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Semper</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Porta</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Popular</a></h5>
+                        <h4 class="mgt col_3" style="font-size: 1.7rem;">OUR STORY</h4>
+                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="{{url('/')}}">Home</a></h5>
+                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="{{url('/Aboutus')}}">About Us</a></h5>
+                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="{{url('/Contactus')}}">Contact Us</a></h5>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Our Categories</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Premium</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Silver</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Diamond</a></h5>
+                        <h4 class="mgt col_3" style="font-size: 1.7rem;">HELP</h4>
+                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="{{url('/Aboutus')}}">About Us</a></h5>
+                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="{{url('/Contactus')}}">Contact Us</a></h5>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <div class="footer_1i clearfix">
                         <h4 class="mgt col_3" style="font-size: 1.7rem;">Join Our Newsletter</h4>
                         <p class="col" style="font-size: 1.5rem;">Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitursodales ligula in libero. Sed dignissim lacinia nunc.</p>
@@ -95,35 +96,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="footer_1 clearfix">
-                <div class="col-sm-2">
-                    <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Our Properties</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Semper Porta</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Nec Tellus</a></h5>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Advertisement</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Print Media</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">TV Commercials</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Photo Gallery</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Video Gallery</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Press Room</a></h5>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="footer_1i clearfix">
-                        <h4 class="mgt col_3" style="font-size: 1.7rem;">Follow Us</h4>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Facebook</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Twitter</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Instagram</a></h5>
-                        <h5 style="font-size: 1.5rem;"><a class="hvr-forward col" href="#">Youtube</a></h5>
-                    </div>
-                </div>
+                </div> --}}
                 <div class="col-sm-6">
                     <div class="footer_1i clearfix">
                         <h4 class="mgt col_3" style="font-size: 1.7rem;">Social Links</h4>
@@ -136,6 +109,15 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h2 style="font-size: 1.5rem; margin: 0; color: white;">© {{ date('2024') }} InnoBrain. All Rights Reserved.</h2>
             </div>
         </div>
     </div>

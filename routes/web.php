@@ -14,6 +14,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -41,7 +42,7 @@ Route::get('/Contactus', [HomeController::class, 'contactus']);
 Route::post('/Feedbackform', [HomeController::class, 'feedbackform']);
 Route::get('/explorenewarrivals', [HomeController::class, 'explorenewarrivals']);
 Route::get('/productdropdown', [HomeController::class, 'productdropdown']);
-
+Route::get('/footer', [HomeController::class, 'categoryfooter']);
 
 // Crat Details
 Route::get('/cart',[CartController::class,'cart'])->name('cart.view');
@@ -60,11 +61,18 @@ Route::post('/checkout-submit', [CheckoutController::class, 'checkoutSubmit'])->
 Route::post('/handlepayment',[PaymentController::class,'handlepayment']);
 
 
+// Profile Routes
+Route::get('/edit-profile', [ProfileController::class, 'edit']);
+Route::post('/edit-profile2', [ProfileController::class, 'update']);
+Route::get('/orderhistory',[ProfileController::class, 'orderhistory']);
+
+
 // Admin Details
 Route::get('/Admin', [AdminController::class, 'adminhome']);
 Route::get('/Admin_customersdetail', [AdminController::class, 'admincustomerdetail']);
 Route::get('/Adminorder', [AdminController::class, 'adminorder']);
 Route::get('/Admincheckoutdetails', [AdminController::class, 'admincheckout']);
+Route::get('/Adminfeedback', [AdminController::class, 'feedbackdetail']);
 
 
 // Admin Login

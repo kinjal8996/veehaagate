@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="list_1r text-right clearfix">
-                        <h5 class="mgt"><a class="button mgt" href="#">VIEW ALL</a></h5>
+                        {{-- <h5 class="mgt"><a class="button mgt" href="#">VIEW ALL</a></h5> --}}
                     </div>
                 </div>
             </div>

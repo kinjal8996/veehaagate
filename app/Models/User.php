@@ -31,6 +31,7 @@ class User extends Authenticatable
         'contact',
     ];
 
+
     // /**
     //  * The attributes that should be hidden for serialization.
     //  *
@@ -53,4 +54,9 @@ class User extends Authenticatable
     //         'password' => 'hashed',
     //     ];
     // }
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order', 'customer_id', 'customer_id');
+    }
+
 }
