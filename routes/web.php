@@ -36,6 +36,9 @@ Route::post('/Login2',[LoginController::class, 'logindata']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Home Page Details
+// search
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+
 Route::get('/allproducts', [HomeController::class, 'allproducts']);
 Route::get('/product/{id}', [HomeController::class, 'productidview'])->name('product.show');
 Route::get('/banners', [HomeController::class, 'banner']);

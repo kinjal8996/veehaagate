@@ -23,7 +23,7 @@
 @endphp
 <section id="header" style="color: black;">
  <div class="container">
-  <div class="row" style="color: black;">
+  <div class="row" style="width: 100%; ">
 
    <div class="header_1 clearfix">
     <div class="col-sm-2" style="color: black;">
@@ -34,67 +34,33 @@
 	    {{-- <h2 style="margin-top: 28px;"><a class="col_1" href="{{url('/')}}">Veehaagate</a></h2> --}}
 	 </div>
 	</div>
-	<div class="col-sm-10">
+	<div class="col-sm-20">
 	 <div class="header_1r clearfix">
-	   {{-- <div class="header_1ri border_none clearfix">
-	     <div class="input-group">
-					<input type="text" class="form-control" placeholder="Search" style="width: 350px">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" type="button">
-							<i class="fa fa-search"></i></button>
-					</span>
-				 </div>
-	   </div> --}}
-       <ul class="nav navbar-nav" style="margin-left: 40px; color:black;">
-
-        <li><a class="m_tag active_tab" href="{{url('/')}}">Home</a></li>
-        {{-- <li class="dropdown">
-              <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product</a>
-              <ul class="dropdown-menu drop_3" role="menu">
-                <li><a href="product.html">Product</a></li>
-                <li><a class="border_none" href="detail.html">Product Detail</a></li>
-              </ul>
-            </li> --}}
-            @php
-            $products = \App\Models\Product::all();
-          @endphp
-            {{-- <li class="dropdown">
-                <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
-                <ul class="dropdown-menu drop_3" role="menu">
-                    @foreach ($products as $product)
-                        <li><a href="{{ route('product.show', $product->product_id) }}">{{ $product->name }}</a></li>
-                    @endforeach
-                </ul>
-            </li> --}}
-            @php
-          $categories = \App\Models\Category::all();
-        @endphp
-            <li class="dropdown">
-                <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
-                <ul class="dropdown-menu drop_3" role="menu">
-                    @foreach ($categories as $category)
-                    <li><a href="{{ route('category.show', $category->category_id) }}">{{ $category->name }}</a></li>
-                @endforeach
-
-                </ul>
-            </li>
-
-        {{-- <li class="dropdown">
-              <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="caret"></span></a>
-              <ul class="dropdown-menu drop_3" role="menu">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a class="border_none" href="blog_detail.html">Blog Detail</a></li>
-              </ul>
-            </li> --}}
-
-        <li><a class="m_tag" href="{{url('/Aboutus')}}">About Us</a></li>
-        <li><a class="m_tag" href="{{url('/Contactus')}}">Contact</a></li>
+	   <div class="header_1ri border_none clearfix">
+	    {{-- <div class="input-group" style="width: 350px; border: 1px solid black; border-radius: 4px; overflow: hidden;">
+            <input type="text" class="form-control" placeholder="Search" style="border: none; width: 100%; padding: 10px;">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" style="border: none; color: black; padding: 10px;">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div> --}}
+        <form action="{{ route('search') }}" method="GET">
+            <div class="input-group" style="width: 350px; border: 1px solid black; border-radius: 4px; overflow: hidden;">
+                <input type="text" name="query" class="form-control" placeholder="Search" style="border: none; width: 100%; padding: 10px;" required>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" style="border: none; color: black; padding: 10px;">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
 
 
-    </ul>
+	   </div>
 
 
-       <div class="header_1ri clearfix" style="margin-left: 50px; color:black;">
+       <div class="header_1ri clearfix" style="margin-left: 50px; ">
         @auth
 
         {{-- <form action="{{ route('logout') }}" method="POST">
@@ -189,5 +155,48 @@
    </div>
   </div>
  </div>
+ <nav style="width: 100%; padding: 0; margin: 0;">
+ <ul class="nav navbar-nav" style=" background-color:#2874F0; height:55px;   color:white; width:100%; margin: 0;  " >
+
+    <li><a class="m_tag active_tab" style="color: white;display: inline-block; " href="{{url('/')}}">Home</a></li>
+
+        @php
+        $products = \App\Models\Product::all();
+      @endphp
+        {{-- <li class="dropdown">
+            <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3" role="menu">
+                @foreach ($products as $product)
+                    <li><a href="{{ route('product.show', $product->product_id) }}">{{ $product->name }}</a></li>
+                @endforeach
+            </ul>
+        </li> --}}
+        @php
+      $categories = \App\Models\Category::all();
+    @endphp
+        <li class="dropdown">
+            <a class="m_tag" href="#" style="color: white; display: inline-block; " data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3" role="menu">
+                @foreach ($categories as $category)
+                <li><a href="{{ route('category.show', $category->category_id) }}">{{ $category->name }}</a></li>
+            @endforeach
+
+            </ul>
+        </li>
+
+    {{-- <li class="dropdown">
+          <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="caret"></span></a>
+          <ul class="dropdown-menu drop_3" role="menu">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="border_none" href="blog_detail.html">Blog Detail</a></li>
+          </ul>
+        </li> --}}
+
+    <li><a class="m_tag"style="color: white; display: inline-block;" href="{{url('/Aboutus')}}">About Us</a></li>
+    <li><a class="m_tag"style="color: white; display: inline-block; " href="{{url('/Contactus')}}">Contact</a></li>
+
+
+</ul>
+ </nav>
 </section>
 

@@ -101,5 +101,32 @@ class HomeController extends Controller
         return view('frontend.allcategoryproduct', compact('categories', 'products'));
     }
 
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');  // Get the search query from the request
+
+    //     // Search the products based on name, description, etc.
+    //     $products = Product::where('name', 'LIKE', "%{$query}%")
+    //                         ->orWhere('description', 'LIKE', "%{$query}%")
+    //                         ->get();
+
+    //     // Pass the search results to a view
+    //     return view('frontend.search-results', compact('products', 'query'));
+    // }
+    public function search(Request $request)
+{
+    $query = $request->input('query');  // Get the search query from the request
+
+    // Search the products based on name, description, or category name
+    $products = Product::where('name', 'LIKE', "%{$query}%")
+                        ->orWhere('description', 'LIKE', "%{$query}%")
+                        ->orWhereHas('category', function($q) use ($query) {
+                            $q->where('name', 'LIKE', "%{$query}%");
+                        })
+                        ->get();
+
+    // Pass the search results and the query to the view
+    return view('frontend.search-results', compact('products', 'query'));
+}
 
 }
