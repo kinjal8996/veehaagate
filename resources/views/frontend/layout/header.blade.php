@@ -58,12 +58,24 @@
             @php
             $products = \App\Models\Product::all();
           @endphp
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
                 <ul class="dropdown-menu drop_3" role="menu">
                     @foreach ($products as $product)
                         <li><a href="{{ route('product.show', $product->product_id) }}">{{ $product->name }}</a></li>
                     @endforeach
+                </ul>
+            </li> --}}
+            @php
+          $categories = \App\Models\Category::all();
+        @endphp
+            <li class="dropdown">
+                <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+                <ul class="dropdown-menu drop_3" role="menu">
+                    @foreach ($categories as $category)
+                    <li><a href="{{ route('category.show', $category->category_id) }}">{{ $category->name }}</a></li>
+                @endforeach
+
                 </ul>
             </li>
 
