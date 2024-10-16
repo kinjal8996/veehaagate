@@ -82,7 +82,7 @@
                                                     <h4><a class="col_1 " href="#">{{ $product->name }}</a></h4>
                                                     <h4><i class="fa fa-rupee"></i> {{ $product->price }}</h4>
                                                     <div class="mt-5">
-                                                        <a href="{{ route('product.show', $product->product_id) }}" class="btn btn-primary btn-block" style="background-color: #d93d3d; border:none; margin-top: 20px;">View</a>
+                                                        <a href="{{ route('product.show', $product->product_id) }}" class="btn btn-primary btn-block" style="background-color: black; border:none; margin-top: 20px;">View</a>
                                                     </div>
                                                 </div>
                                             </div>

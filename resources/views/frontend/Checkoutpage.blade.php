@@ -334,9 +334,10 @@
                     </div>
 
                     <div class="">
-                        <div class="" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                        <div class="" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;  font-size: 20px;  ">
+
                             <form action="/handlepayment" method="post" style="margin: 0 auto;">
-                                @csrf
+                                 @csrf
                                 <script src="https://checkout.razorpay.com/v1/checkout.js"
                                     data-key="{{ env('RAZOR_KEY') }}"
                                     data-amount="{{ session('totalAmount') * 100 }}"

@@ -10,50 +10,50 @@
         <form action="{{url('/Signup2')}}" method="POST">
             @csrf
 
-            <input type="text" class="form-control" placeholder="Full Name" name="fullname" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="text" class="form-control" placeholder="Full Name" name="fullname" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('fullname')
                         <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="email" class="form-control" placeholder="Email" name="email" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="email" class="form-control" placeholder="Email" name="email" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('email')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="password" class="form-control" placeholder="Password" name="password" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="password" class="form-control" placeholder="Password" name="password" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('password')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="text" class="form-control" placeholder="Address" name="address" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="text" class="form-control" placeholder="Address" name="address" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('address')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="text" class="form-control" placeholder="City" name="city" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="text" class="form-control" placeholder="City" name="city" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('city')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="text" class="form-control" placeholder="State" name="state" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="text" class="form-control" placeholder="State" name="state" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('state')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="number" class="form-control" placeholder="Pincode" name="pincode" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="number" class="form-control" placeholder="Pincode" name="pincode" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('pincode')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <input type="text" class="form-control" placeholder="Contact Number" name="contact" required style="border-radius: 5px; border: 1px solid #d93d3d; margin-bottom: 15px; color: #333; padding: 10px;" />
+            <input type="text" class="form-control" placeholder="Contact Number" name="contact" required style="border-radius: 5px; border: 1px solid black; margin-bottom: 15px; color: #333; padding: 10px;" />
             @error('contact')
             <div class="text-danger">{{ $message }}</div>
             @enderror
 
-            <button type="submit" class="login-btn" style="background-color: #d93d3d; color: white; border-radius: 5px; width: 100%; padding: 18px; border: none; font-weight: bold; font-size: 16px; transition: background-color 0.3s ease;">Register</button>
+            <button type="submit" class="login-btn" style="background-color: black; color: white; border-radius: 5px; width: 100%; padding: 18px; border: none; font-weight: bold; font-size: 16px; transition: background-color 0.3s ease;">Register</button>
         </form>
         <div class="signup" style="text-align: center; margin-top: 15px;">
-            <p style="font-size: 16px; color: #333;">Already have an account? <a href="{{url('/Login')}}" style="color: #d93d3d; text-decoration: none; font-weight: bold;">Login</a></p>
+            <p style="font-size: 16px; color: #333;">Already have an account? <a href="{{url('/Login')}}" style="color: black; text-decoration: none; font-weight: bold;">Login</a></p>
         </div>
     </div>
 </div>

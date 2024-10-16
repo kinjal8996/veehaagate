@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>InnoBrain Technologies</title>
-  <link rel="shortcut icon" type="image/png" href="{{ asset('AdminPanel/assets/images/logos/favicon2.png') }}" />
+  <title>VEEHAAGATE</title>
+  <link rel="shortcut icon" type="image/png" href="{{ asset('AdminPanel/assets/images/logos/logo.jpg') }}" />
   <link rel="stylesheet" href="{{ asset('AdminPanel/assets/css/styles.min.css') }}" />
 </head>
 
@@ -19,7 +19,7 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href=" " class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="{{ asset('AdminPanel/assets/images/logos/favicon2.png') }}" width="150" height="100" alt="">
+                  <img src="{{ asset('AdminPanel/assets/images/logos/logo.jpg') }}" width="150" height="100" alt="">
                 </a>
 
                 <form action="/password/reset" method="POST">

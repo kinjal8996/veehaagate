@@ -15,6 +15,7 @@ use App\Http\Controllers\ForgotpasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -160,4 +161,9 @@ Route::post('/product/update/{id}',[AdminProductController::class,'productupdate
 Route::get('/product/delete/{id}',[AdminProductController::class,'productdelete'])->name('product.delete');
 Route::get('/product/frocedelete/{id}',[AdminProductController::class,'productforcedelete'])->name('product.forcedelete');
 Route::get('/product/restore/{id}',[AdminProductController::class,'productrestore'])->name('product.restore');
+
+Route::get('/privacypolicy', [PolicyController::class, 'privacypolicy']);
+Route::get('/termscondition', [PolicyController::class, 'termscondition']);
+Route::get('/cancellation', [PolicyController::class, 'cancellation']);
+Route::get('/shipping', [PolicyController::class, 'shipping']);
 

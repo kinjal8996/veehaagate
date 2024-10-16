@@ -18,7 +18,7 @@
                         <div class="row justify-content-start align-items-center" style="margin-left:10px;">
                             <!-- Image Section -->
                             <div class="col-md-5 text-center">
-                                <img id="mainImage" src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded-3" alt="Product Image" style="height: 300px; width: 100%; margin-bottom: 20px; border-radius: 15px;">
+                                <img id="mainImage" src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded-3" alt="Product Image" style="height: 280px; width: 310px; margin-bottom: 20px; border-radius: 5px;">
                             </div>
                             <!-- Content Section -->
                             <div class="col-md-7">
@@ -39,27 +39,122 @@
 
                                 <!-- Add to Cart Button -->
                                 <div class="mt-4">
-                                    <button onclick="addToCart({{ $product->product_id }})" class="btn btn-lg btn-dark" style="background-color: #d93d3d; border:none; margin-top: 20px; color:#eee;">Add to cart</button>
+                                    <button onclick="addToCart({{ $product->product_id }})" class="btn btn-lg btn-dark" style="background-color: black; border:none; margin-top: 20px; color:#eee;">Add to cart</button>
                                 </div>
                             </div>
                         </div>
+                        {{-- <div class="row mt-4" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <div class="col-2 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 100px; height: 70px;  box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')"
+                                     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 10px rgba(0,0,0,0.2)';"
+                                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.1)';">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width:100px; height: 70px;  box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')"
+                                     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 10px rgba(0,0,0,0.2)';"
+                                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.1)';">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width:100px; height: 70px;  box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')"
+                                     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 10px rgba(0,0,0,0.2)';"
+                                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.1)';">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 100px; height: 70px;  box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')"
+                                     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 10px rgba(0,0,0,0.2)';"
+                                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.1)';">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 100px; height: 70px;  box-shadow: 0px 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')"
+                                     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 10px rgba(0,0,0,0.2)';"
+                                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.1)';">
+                            </div>
+                        </div> --}}
+
                         {{-- All Images in one row --}}
-                        <div class="row mt-4" style="display: flex; justify-content: space-between; margin-bottom:20px;">
-                            <div class="col-3 text-center">
-                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                        <div class="row mt-4" style="display: flex; justify-content: space-between; margin-bottom: 20px; gap: 0;">
+                            {{-- <div class="col-2 text-center" style="padding: 0;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 80px; height: 50px; border-radius: 15px;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                            </div>
+                            <div class="col-2 text-center" style="padding: 0;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 80px; height: 50px; border-radius: 15px;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                            </div>
+                            <div class="col-2 text-center" style="padding: 0;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 80px; height: 50px; border-radius: 15px;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                            </div>
+                            <div class="col-2 text-center" style="padding: 0;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 80px; height: 50px; border-radius: 15px;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                            </div>
+                            <div class="col-2 text-center" style="padding: 0;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image"
+                                     style="width: 80px; height: 50px; border-radius: 15px;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->image) }}')">
+                            </div>
+                        </div> --}}
+                        <div class="row mt-4" style="display: flex; justify-content: flex-start; margin-bottom: 20px; gap: 0;">
+                            <div class="col-3" style="padding: 0; margin-right: 5px;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid" alt="Image 1"
+                                     style="width: 100px; height: 60px; border-radius: 10px; margin: 0;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->img1) }}')">
+                            </div>
+                            <div class="col-3" style="padding: 0; margin-right: 5px;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid" alt="Image 2"
+                                     style="width: 100px; height: 60px; border-radius: 10px; margin: 0;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->img2) }}')">
+                            </div>
+                            <div class="col-3" style="padding: 0; margin-right: 5px;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid" alt="Image 3"
+                                     style="width: 100px; height: 60px; border-radius: 10px; margin: 0;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->img3) }}')">
+                            </div>
+                            <div class="col-3" style="padding: 0; margin-right: 5px;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid" alt="Image 4"
+                                     style="width: 100px; height: 60px; border-radius: 10px; margin: 0;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->img4) }}')">
+                            </div>
+                            <div class="col-3" style="padding: 0; margin-right: 5px;">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid" alt="Image 4"
+                                     style="width: 100px; height: 60px; border-radius: 10px; margin: 0;"
+                                     onclick="changeImage('{{ asset('productsimg/' . $product->img4) }}')">
+                            </div>
+                        </div>
+
+
+
+
+                        {{-- <div class="col-3 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image 1" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img1) }}')">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="{{ asset('productsimg/' . $product->img1) }}" class="img-fluid rounded" alt="Image 1" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img1) }}')">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image 2" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img2) }}')">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="{{ asset('productsimg/' . $product->img2) }}" class="img-fluid rounded" alt="Image 2" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img2) }}')">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image 3" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img3) }}')">
                             </div>
                             <div class="col-3 text-center">
-                                <img src="{{ asset('productsimg/' . $product->img3) }}" class="img-fluid rounded" alt="Image 3" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img3) }}')">
-                            </div>
-                            <div class="col-3 text-center">
+                                <img src="{{ asset('productsimg/' . $product->image) }}" class="img-fluid rounded" alt="Image 4" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img4) }}')">
+                            </div> --}}
+                            {{-- <div class="col-3 text-center">
                                 <img src="{{ asset('productsimg/' . $product->img4) }}" class="img-fluid rounded" alt="Image 4" style="width: 150px; height: 70px; border-radius: 15px;" onclick="changeImage('{{ asset('productsimg/' . $product->img4) }}')">
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>
@@ -68,7 +163,7 @@
         </div>
     </div>
     <div class="text-center mt-3">
-        <a href="{{ url('/') }}" class="btn btn-dark btn-lg" style="background-color:#d93d3d; color:#eee; margin-bottom:20px;" role="button">Back</a>
+        <a href="{{ url('/') }}" class="btn btn-dark btn-lg" style="background-color:black; color:#eee; margin-bottom:20px;" role="button">Back</a>
     </div>
 </div>
 

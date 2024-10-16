@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <nav class="navbar " style="background-color:  #d93d3d; color:white">
+    <nav class="navbar " style="background-color:  black; color:white">
         <div class="container-fluid">
             <a class="navbar-brand text-white"><h3>Veehaagate</h3></a>
         </div>

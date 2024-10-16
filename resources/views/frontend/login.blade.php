@@ -35,13 +35,13 @@
                 <input type="password" placeholder="Enter Password" name="password" style="width: 100%; padding: 10px; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;" required>
             </div>
             <div style="text-align: center; margin-bottom: 50px;">
-                <button type="submit" style="width: 100%; background-color: #d93d3d; color: white; padding: 10px; font-size: 2rem; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+                <button type="submit" style="width: 100%; background-color: black; color: white; padding: 10px; font-size: 2rem; border: none; border-radius: 5px; cursor: pointer;">Login</button>
             </div>
             <div style="text-align: center; margin-bottom: 10px;">
-                <a href="{{url('/forgotpassword')}}" style="color: #d93d3d; text-decoration: none; font-size: 2rem;">Forgot Password?</a>
+                <a href="{{url('/forgotpassword')}}" style="color: black; text-decoration: none; font-size: 2rem;">Forgot Password?</a>
             </div>
             <div style="text-align: center;">
-                <span style="font-size: 2rem;">Don't have an account? <a href="{{url('/register')}}" style="color: #d93d3d; text-decoration: none;">Sign Up</a></span>
+                <span style="font-size: 2rem;">Don't have an account? <a href="{{url('/register')}}" style="color: black; text-decoration: none;">Sign Up</a></span>
             </div>
         </form>
     </div>

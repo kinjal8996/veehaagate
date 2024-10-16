@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Veehaagate</title>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('AdminPanel/assets/images/logos/logo.jpg') }}" />
 	<link href="{{asset("frontend/css/bootstrap.min.css")}}" rel="stylesheet">
 	<link href="{{asset("frontend/css/global.css")}}" rel="stylesheet">
 	<link href="{{asset("frontend/css/index.css")}}" rel="stylesheet">
@@ -20,13 +21,17 @@
     $cart = session('cart', []);
     $totalItems = array_sum(array_column($cart, 'quantity'));
 @endphp
-<section id="header">
+<section id="header" style="color: black;">
  <div class="container">
-  <div class="row">
+  <div class="row" style="color: black;">
+
    <div class="header_1 clearfix">
-    <div class="col-sm-2">
+    <div class="col-sm-2" style="color: black;">
 	 <div class="header_1l text-center clearfix">
-	    <h2 style="margin-top: 28px;"><a class="col_1" href="{{url('/')}}">Veehaagate</a></h2>
+        <a href=" " class="text-nowrap logo-img text-center d-block py-3 w-100">
+            <img src="{{ asset('AdminPanel/assets/images/logos/logo.jpg') }}" width="100" height="90" alt="">
+          </a>
+	    {{-- <h2 style="margin-top: 28px;"><a class="col_1" href="{{url('/')}}">Veehaagate</a></h2> --}}
 	 </div>
 	</div>
 	<div class="col-sm-10">
@@ -40,7 +45,7 @@
 					</span>
 				 </div>
 	   </div> --}}
-       <ul class="nav navbar-nav" style="margin-left: 40px;">
+       <ul class="nav navbar-nav" style="margin-left: 40px; color:black;">
 
         <li><a class="m_tag active_tab" href="{{url('/')}}">Home</a></li>
         {{-- <li class="dropdown">
@@ -77,7 +82,7 @@
     </ul>
 
 
-       <div class="header_1ri clearfix" style="margin-left: 50px;">
+       <div class="header_1ri clearfix" style="margin-left: 50px; color:black;">
         @auth
 
         {{-- <form action="{{ route('logout') }}" method="POST">
@@ -98,7 +103,7 @@
                 <li><a href="{{url('/orderhistory')}}">Order History</a></li>
                 <li> <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-dark text-center" style="margin-left: 20px; background-color: #d93d3d; color:white;"><b>Logout</b></button>
+                    <button type="submit" class="btn btn-dark text-center" style="margin-left: 20px; background-color: black; color:white;"><b>Logout</b></button>
                 </form></li>
               </ul>
             </h5>
@@ -120,7 +125,7 @@
       </div>
 
 
-      <div class="header_1ri border_none clearfix " style="position: relative;">
+      {{-- <div class="header_1ri border_none clearfix " style="position: relative;">
         <span class="span_1">
             <a class="col_1" href="#">
                 <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -130,10 +135,37 @@
         <h5 class="mgt">
             <a href="{{ route('cart.view') }}">My <br> Cart</a>
         </h5>
+    </div> --}}
+
+
+    <div class="header_1ri border_none clearfix" style="position: relative;">
+        <span class="span_1">
+            <a class="col_1" href="javascript:void(0);" onclick="checkCartItems()">
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                <span id="cart-badge" class="badge rounded-pill bg-danger" style="position: absolute; top: -5px; right: -0px;">{{ $totalItems }}</span>
+            </a>
+        </span>
+        <h5 class="mgt">
+            <a href="javascript:void(0);" onclick="checkCartItems()">My <br> Cart</a>
+        </h5>
     </div>
 
+    <script>
+        function checkCartItems() {
+            var totalItems = parseInt($("#cart-badge").text());  // Get the updated badge value
 
+            if (totalItems == 0) {
+                // Show alert if cart is empty
+                alert("Your cart is empty! Please add items to cart.");
 
+                // Redirect to homepage
+                window.location.href = "{{ url('/') }}";
+            } else {
+                // Redirect to cart view if cart has items
+                window.location.href = "{{ route('cart.view') }}";
+            }
+        }
+    </script>
 
 	   {{-- <div class="header_1ri border_none clearfix">
 	     <span class="span_1"><a class="col_1" href="#"><i class="fa fa-heart-o"></i></a></span>

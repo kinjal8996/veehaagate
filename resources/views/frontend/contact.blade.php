@@ -22,8 +22,11 @@
             <div class="contact_1 clearfix">
                 <div class="col-sm-6">
                     <div class="contact_1l clearfix">
-                        <h1 class="mgt">How to find Us?</h1>
+                        <h1 class="mgt">How to find Us?</h1><br>
                         @foreach ($contactus as $contact)
+                        <h5>
+                            <a href="#"><i class="fa fa-map col_1"></i>{{ $contact->address }}-388620</a>
+                        </h5>
                             <h5>
                                 <a href="#"><i class="fa fa-envelope col_1"></i> {{ $contact->email }}</a>
                             </h5>
@@ -31,18 +34,19 @@
                                 <a href="#"><i class="fa fa-phone col_1"></i> {{ $contact->contact1 }}</a>
                             </h5>
                             <h5>
-                                <a href="#"><i class="fa fa-phone col_1"></i> {{ $contact->contact2 }}</a>
+                                <a href="#">GSTIN: {{ $contact->GSTIN }}</a>
+                                {{-- <i class="fa fa-file col_1"></i> --}}
                             </h5>
                         @endforeach
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="contact_1r text-center clearfix">
-                        <h1 class="mgt col_1">Get in Touch!</h1>
+                        <h1 class="mgt col_1">Get in Touch!</h1><br>
                         <form action="{{url('/Feedbackform')}}" method="POST">
                             @csrf
-                        <input class="form-control" placeholder="Your Name" name="name" type="text">
-                        <input class="form-control" placeholder="Your Email" name="email" type="text">
+                        <input class="form-control" placeholder="Your Name" name="name" type="text"><br>
+                        <input class="form-control" placeholder="Your Email" name="email" type="text"><br>
                         <textarea class="form-control form_1" placeholder="Your Comment" name="comment"></textarea>
                         {{-- <h4><a class="button_1" href="#">Submit</a></h4> --}}
                         <button class="button_1" type="submit">Submit</button>

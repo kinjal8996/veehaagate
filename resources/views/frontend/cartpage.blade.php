@@ -102,7 +102,7 @@
                 <p style="font-size: 16px; margin: 5px 0;"> Price: ₹{{ $item['price'] }}</p>
             </div>
             <div style="flex-basis: 20%; text-align: right;">
-                <button onclick="removeFromCart('{{ $item['product_id'] }}')" style="background-color: #d9534f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                <button onclick="removeFromCart('{{ $item['product_id'] }}')" style="background-color: black; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                     <i class="bi bi-trash"></i> Remove
                 </button>
             </div>
