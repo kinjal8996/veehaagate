@@ -1,6 +1,6 @@
 
 
-  @extends('Frontend.Layout.main')
+  @extends('frontend.layout.main')
 
  @section('main-container')
 

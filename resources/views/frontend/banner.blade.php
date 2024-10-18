@@ -48,7 +48,7 @@
 
 
    </section> --}}
-   <section id="center" class="center_home">
+   <section id="center" class="center_home" style="margin-top:20px;">
     <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>

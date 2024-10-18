@@ -8,10 +8,10 @@ Licence: <a href="https://www.templateonweb.com/license">Website Template Licenc
 /*********************center_home****************/
 .fade-carousel {
     position: relative;
-    min-height: 600px;
+    min-height: 400px;
 }
 .fade-carousel .carousel-inner .item {
-    min-height: 600px;
+    min-height: 400px;
 }
 .fade-carousel .carousel-indicators > li {
     margin: 0 4px;
@@ -101,8 +101,9 @@ left:88%!important;
 /********************************/
 .fade-carousel .slides .slide-1,
 .fade-carousel .slides .slide-2,
-.fade-carousel .slides .slide-3 {
-  min-height: 600px;
+.fade-carousel .slides .slide-3,
+.fade-carousel .slides .slide-4 {
+  min-height: 400px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -118,6 +119,10 @@ left:88%!important;
 .fade-carousel .slides .slide-3 {
       background-image: url(../img/5.jpg);
 	  background-position:center;
+}
+.fade-carousel .slides .slide-4 {
+    background-image: url(../img/5.jpg);
+    background-position:center;
 }
 #center .carousel-indicators{
   bottom:0;

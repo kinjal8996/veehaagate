@@ -35,7 +35,7 @@
 </div>
 
 @endsection --}}
-@extends('Frontend.Layout.main')
+@extends('frontend.layout.main')
 
 @section('main-container')
 <div style="width: 80%; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; font-family: Roboto; color: #333; line-height: 1.6; margin-top: 20px; margin-bottom: 30px;">

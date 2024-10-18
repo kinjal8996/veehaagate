@@ -194,8 +194,9 @@ border:1px solid #f4573729;
 .header_1ri .input-group .form-control{
 border:none;
 box-shadow:none;
-height:45px;
+height:40px;
 font-size:16px;
+width: 350px;
  }
 .header_1ri .input-group .btn{
 border:none;
@@ -255,15 +256,15 @@ font-size:20px;
 background:none;
  }
 .m_tag:hover{
-color:#000!important;
+color:white!important;
 background:none!important;
  }
 .m_tag:focus{
-color:#000!important;
+color:white!important;
 background:none!important;
  }
 .active_tab{
-color:#000;
+color:white;
 background:none!important;
  }
 
@@ -275,7 +276,7 @@ padding-bottom:15px!important
  }
 #menu  .drop_3 a:hover{
 color:#fff!important;
-background: black!important;
+background: #2874F0!important;
  }
 #menu  .drop_3{
 padding:0;

@@ -79,7 +79,7 @@
     }
 </script>
 @endsection --}}
-@extends('Frontend.Layout.main')
+@extends('frontend.layout.main')
 
 @section('main-container')
 <h2 style="text-align: center; font-size: 32px; color: #333; margin-bottom: 20px;">Cart Page</h2>

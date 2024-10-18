@@ -1,5 +1,5 @@
 
-@extends('Frontend.Layout.main')
+@extends('frontend.layout.main')
 
 @section('main-container')
 <div  style="margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; height: 125vh; overflow: hidden; background-color: #f0f4f8; justify-content: center; align-items: center; padding: 20px;">

@@ -139,7 +139,7 @@
     #footer h4 {
         font-family:'Roboto';
         font-weight: normal; /* Unbold the title */
-        font-size: 1rem; /* Make the title font slightly smaller */
+        font-size: 1.1rem; /* Make the title font slightly smaller */
         color: #cccccc; /* Dimmed color for the title */
     }
 

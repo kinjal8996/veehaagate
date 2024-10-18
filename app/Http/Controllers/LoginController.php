@@ -76,10 +76,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $request->session()->put('customer_id', $user->customer_id);
-            return redirect('/')->with([
-                'success' => 'Login successful!',
-                'username' => $user->fullname
-            ]);
+            $request->session()->put('success', 'Login successful!');
+            $request->session()->put('username', $user->fullname);
+
+            return redirect('/');
+
         }
 
         return redirect()->back()->with('error', 'Invalid email or password.');
@@ -88,6 +89,8 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $request->session()->forget('customer_id');
+        $request->session()->forget('success');
+        $request->session()->forget('username');
         Auth::logout();
         return redirect('/');
     }
